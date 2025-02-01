@@ -22,32 +22,14 @@
     padding-block: 1rem;
 }
 
-.containerInputName label {
-    display: block;
-    font-weight: 700;
-    padding-block-end: .325rem;
-}
-
 .containerAdress{
     display: flex;
     gap: .5rem;
 }
 
-.containerLocalization label{
-    display: block;
-    font-weight: 700;
-    padding-block-end: .325rem;
-}
-
 .containerStates{
     width: 6rem;
     border-radius: .325rem;
-}
-
-
-.containerDescription label{
-    display: block;
-    font-weight: 700;
 }
 
 .containerDescription textarea{

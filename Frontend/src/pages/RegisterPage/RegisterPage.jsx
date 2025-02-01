@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styles from './styles.module.css'
 import { statesBrazil } from '../../utils/constants';
 import { Input } from '../../components/Input/Input';
+import { Label } from '../../components/Label/Label';
 
 export const RegisterPage = () => {
     const [selectedState, setSelectedState] = useState("");
@@ -11,13 +12,13 @@ export const RegisterPage = () => {
         <form className={styles.form}>
           <h2>Cadastre um novo ponto turístico!</h2>
           <section className={styles.containerInputName}>
-            <label htmlFor='name'>Name:</label>
-            <Input className={styles.inputName} id="name" type="text" placeholder='Digite o nome do ponto turístico' />
+            <Label htmlFor='name'>Name:</Label>
+            <Input id="name" type="text" placeholder='Digite o nome do ponto turístico' />
           </section>
           <section className={styles.containerLocalization}>
-            <label htmlFor='cidade'>Localizacação:</label>
+            <Label htmlFor='cidade'>Localizacação:</Label>
             <section>
-              <label htmlFor='cidade'>UF/Cidade:</label>
+              <Label htmlFor='cidade'>UF/Cidade:</Label>
               <section className={styles.containerAdress}>
                 <select
                   id="estados"
@@ -32,15 +33,15 @@ export const RegisterPage = () => {
                     </option>
                   ))}
                 </select>
-                <Input className={styles.inputCity} id="cidade" type="text" />
+                <Input id="cidade" type="text" />
               </section>
   
             </section>
-            <label htmlFor='cidade'>Localizacação:</label>
-            <Input className={styles.inputReferency} id="referencia" type="text" />
+            <Label htmlFor='cidade'>Localizacação:</Label>
+            <Input id="referencia" type="text" />
           </section>
           <section className={styles.containerDescription}>
-            <label htmlFor='descricao'>Referência:</label>
+            <Label htmlFor='descricao'>Referência:</Label>
             <textarea id="descricao"/>
           </section>
           <button className={styles.buttonForm}>Cadastre</button>
