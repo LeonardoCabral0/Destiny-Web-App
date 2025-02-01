@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styles from './styles.module.css'
+import { statesBrazil } from '../../utils/constants';
 
 export const RegisterPage = () => {
     const [selectedState, setSelectedState] = useState("");
