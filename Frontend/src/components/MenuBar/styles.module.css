@@ -1,0 +1,65 @@
+.menuBar, 
+.menuBarCopy{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;  
+    margin-inline: auto;  
+}
+
+.containerMenuContent{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    min-height: 100vh;
+    height: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    z-index: 2;
+}
+
+.logo{
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.menuBarCopy .logo{
+    color: white;
+}
+
+.menuButtonOpen,
+.menuButtonClose{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: .5rem;
+}
+
+.menuButtonOpen{
+    color: black;
+}
+
+.menuButtonClose{
+    color: white;
+}
+
+.menuContent{
+    padding: 4rem 20rem;
+}
+
+.containerList{
+    list-style: none;
+}
+
+.itemList{
+    position: relative;
+    cursor: pointer;
+    color: white;
+    font-size: 6rem;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
