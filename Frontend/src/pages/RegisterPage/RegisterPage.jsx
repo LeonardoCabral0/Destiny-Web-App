@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from './styles.module.css'
 import { statesBrazil } from '../../utils/constants';
+import { Input } from '../../components/Input/Input';
 
 export const RegisterPage = () => {
     const [selectedState, setSelectedState] = useState("");
@@ -11,7 +12,7 @@ export const RegisterPage = () => {
           <h2>Cadastre um novo ponto turístico!</h2>
           <section className={styles.containerInputName}>
             <label htmlFor='name'>Name:</label>
-            <input className={styles.inputName} id="name" type="text" placeholder='Digite o nome do ponto turístico' />
+            <Input className={styles.inputName} id="name" type="text" placeholder='Digite o nome do ponto turístico' />
           </section>
           <section className={styles.containerLocalization}>
             <label htmlFor='cidade'>Localizacação:</label>
@@ -31,12 +32,12 @@ export const RegisterPage = () => {
                     </option>
                   ))}
                 </select>
-                <input className={styles.inputCity} id="cidade" type="text" />
+                <Input className={styles.inputCity} id="cidade" type="text" />
               </section>
   
             </section>
             <label htmlFor='cidade'>Localizacação:</label>
-            <input className={styles.inputReferency} id="referencia" type="text" />
+            <Input className={styles.inputReferency} id="referencia" type="text" />
           </section>
           <section className={styles.containerDescription}>
             <label htmlFor='descricao'>Referência:</label>

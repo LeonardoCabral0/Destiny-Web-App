@@ -28,13 +28,6 @@
     padding-block-end: .325rem;
 }
 
-.inputName {
-    width: 100%;
-    padding: .5rem;
-    border-radius: .325rem;
-    border: 1px solid black;
-}
-
 .containerAdress{
     display: flex;
     gap: .5rem;
@@ -51,19 +44,6 @@
     border-radius: .325rem;
 }
 
-.inputCity{
-    width: 100%;
-    padding: .5rem;
-    border-radius: .325rem;
-    border: 1px solid black;
-}
-
-.inputReferency{
-    width: 100%;
-    padding: .5rem;
-    border-radius: .325rem;
-    border: 1px solid black;
-}
 
 .containerDescription label{
     display: block;
