@@ -3,23 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristSpot.Api", "TouristSpot.Api\TouristSpot.Api.csproj", "{AA0F705B-7689-4B86-BC4C-CEB9D36F98F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TouristSpot.Api", "TouristSpot.Api\TouristSpot.Api.csproj", "{AA0F705B-7689-4B86-BC4C-CEB9D36F98F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristSpot.Application", "TouristSpot.Application\TouristSpot.Application.csproj", "{48C82ABB-15E8-4F04-8B57-05F86BE659F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TouristSpot.Application", "TouristSpot.Application\TouristSpot.Application.csproj", "{48C82ABB-15E8-4F04-8B57-05F86BE659F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristSpot.Domain", "TouristSpot.Domain\TouristSpot.Domain.csproj", "{E73C5EAC-0E35-4B14-9880-EAEECF11B68D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TouristSpot.Domain", "TouristSpot.Domain\TouristSpot.Domain.csproj", "{E73C5EAC-0E35-4B14-9880-EAEECF11B68D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristSpot.Infrastructure", "TouristSpot.Infrastructure\TouristSpot.Infrastructure.csproj", "{47A979AE-5950-4B66-849C-1865DD028CA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TouristSpot.Infrastructure", "TouristSpot.Infrastructure\TouristSpot.Infrastructure.csproj", "{47A979AE-5950-4B66-849C-1865DD028CA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristSpot.Contracts", "TouristSpot.Contracts\TouristSpot.Contracts.csproj", "{3425540B-891B-4DB7-9026-DCF2147315B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TouristSpot.Contracts", "TouristSpot.Contracts\TouristSpot.Contracts.csproj", "{3425540B-891B-4DB7-9026-DCF2147315B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{879452A8-C84C-460C-89BA-A94B00C2DA0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristSpot.Application.Test", "TouristSpot.Application.Test\TouristSpot.Application.Test.csproj", "{405E019B-905F-4720-B996-B0077446DBA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{AA0F705B-7689-4B86-BC4C-CEB9D36F98F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -42,5 +43,18 @@ Global
 		{3425540B-891B-4DB7-9026-DCF2147315B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3425540B-891B-4DB7-9026-DCF2147315B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3425540B-891B-4DB7-9026-DCF2147315B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{405E019B-905F-4720-B996-B0077446DBA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{405E019B-905F-4720-B996-B0077446DBA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{405E019B-905F-4720-B996-B0077446DBA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{405E019B-905F-4720-B996-B0077446DBA0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{405E019B-905F-4720-B996-B0077446DBA0} = {879452A8-C84C-460C-89BA-A94B00C2DA0F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C485A8E-8EC9-42D9-BC16-9789479203B5}
 	EndGlobalSection
 EndGlobal

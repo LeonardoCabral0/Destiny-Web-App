@@ -1,4 +1,4 @@
-﻿namespace Domain.Entities
+﻿namespace TouristSpot.Domain.Entities
 {
     public class TouristSpot
     {
