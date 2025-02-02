@@ -20,9 +20,7 @@ export const RegisterPage = () => {
 
   const handleSubmit = async event => {
     event.preventDefault()
-
     const allValuesIsValid = name.validate() && city.validate() && state.validate() && localization.validate() && descpription.validate()
-
     if (allValuesIsValid) {
       const requestBody = {
         name: name.value,
@@ -31,7 +29,6 @@ export const RegisterPage = () => {
         city: city.value,
         state: state.value
       }
-
       try {
         setIsLoading(true)
         const reponse = await api.post("/TouristSpot", requestBody)

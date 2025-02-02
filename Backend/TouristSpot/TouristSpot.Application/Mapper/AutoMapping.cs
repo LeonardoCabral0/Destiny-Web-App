@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using TouristSpot.Application.UseCases.TouristSpotServices.Get;
 using TouristSpot.Application.UseCases.TouristSpotServices.Register;
 
 namespace TouristSpot.Application.Mapper
@@ -19,6 +20,7 @@ namespace TouristSpot.Application.Mapper
         private void DomainToOutput()
         {
             CreateMap<Domain.Entities.TouristSpot, OutputRegisterTouristSpot>();
+            CreateMap<Domain.Entities.TouristSpot, OutputShortGetTouristSpot>();
         }
     }
 }

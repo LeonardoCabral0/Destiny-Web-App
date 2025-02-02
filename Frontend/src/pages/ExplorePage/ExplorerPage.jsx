@@ -1,13 +1,14 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from './styles.module.css'
 import { FaSearch } from "react-icons/fa";
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { Card } from '../../components/Card/Card';
-
-const arr = Array.from({ length: 10 }, (_, i) => i + 1);
+import api from '../../utils/api';
 
 export const ExplorerPage = () => {
+  const [touristsSpots, setTouristsSpots] = useState([])
+
   const searchBar = useRef()
   const tl = useRef()
 
@@ -21,6 +22,15 @@ export const ExplorerPage = () => {
       }, "-=0.3")
 
   }, {})
+
+  useEffect(()=>{
+    const getAllTouristsSpots = async () => {
+      const response = await api.get("TouristSpot")
+      setTouristsSpots(response.data.touristsSpots)
+    }
+
+    getAllTouristsSpots()
+  }, [])
   return (
     <section className={styles.wrapper}>
       <div className={styles.container}>
@@ -33,7 +43,7 @@ export const ExplorerPage = () => {
           </div>
         </div>
         <div className={styles.containerContent}>
-          {arr.map((item, index) => <Card />)}
+          {touristsSpots.map(touristSpot => <Card touristSpot={touristSpot}/>)}
         </div>
       </div>
     </section>

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Application.UseCases.TouristSpot.Get;
+using Microsoft.AspNetCore.Mvc;
+using TouristSpot.Application.UseCases.TouristSpotServices.Get;
 using TouristSpot.Application.UseCases.TouristSpotServices.Register;
 
 namespace WebAPI.Controllers
@@ -15,6 +17,21 @@ namespace WebAPI.Controllers
         {
             var response = await useCase.Execute(request);
             return Created(string.Empty, response);
+        }
+
+        [HttpGet("{orderBy?}")]
+        [ProducesResponseType(typeof(OutputRegisterTouristSpot), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> GetAll(
+        [FromServices] IGetTouristSpots useCase,
+        string orderBy = "ASC")
+        {
+            var input = new InputGetTouristSpot(string.Empty, orderBy);
+            var response = await useCase.Execute(input);
+            if (response.TouristsSpots.Any())
+                return Ok(response);
+
+            return NoContent();
         }
     }
 }
