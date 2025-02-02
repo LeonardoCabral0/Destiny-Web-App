@@ -14,3 +14,9 @@
     font-weight: 700;
     padding-block-end: .325rem;
 }
+
+.error{
+    font-weight: 600;
+    font-size: 1rem;
+    color: red;
+}

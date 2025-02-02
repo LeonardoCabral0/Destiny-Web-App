@@ -5,13 +5,34 @@ import { Select } from '../../components/Select/Select';
 import { Textarea } from '../../components/Textarea/Textarea';
 import { ButtonForm } from '../../components/ButtonForm/ButtonForm';
 import { useForm } from '../../hooks/UseForm';
+import api from '../../utils/api';
 
 export const RegisterPage = () => {
   const name = useForm();
   const city = useForm();
   const state = useForm();
   const localization = useForm();
-  const descpription = useForm();
+  const descpription = useForm('description');
+
+  const handleSubmit = async event => {
+    event.preventDefault()
+
+    const allValuesIsValid = name.validate() && city.validate() && state.validate() && localization.validate() && descpription.validate()
+
+    if (allValuesIsValid) {
+      const requestBody = {
+          name: name.value,
+          description: descpription.value,
+          localization: localization.value,
+          city: city.value,
+          state: state.value
+      }
+
+      const reponse = await api.post("/TouristSpot", requestBody)
+      console.log(reponse)
+    }
+  }
+
 
   return (
     <section className={styles.wrapper}>
@@ -24,7 +45,7 @@ export const RegisterPage = () => {
         </section>
         <Input label="Referência/Endereço:" name="localization" {...localization} />
         <Textarea label="Descrição:" name="description" {...descpription} />
-        <ButtonForm>Cadastre</ButtonForm>
+        <ButtonForm onClick={handleSubmit}>Cadastre</ButtonForm>
       </form>
     </section>
   )
