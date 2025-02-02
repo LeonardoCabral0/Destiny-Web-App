@@ -6,6 +6,7 @@ import { Textarea } from '../../components/Textarea/Textarea';
 import { ButtonForm } from '../../components/ButtonForm/ButtonForm';
 import { useForm } from '../../hooks/UseForm';
 import api from '../../utils/api';
+import { statesBrazil } from '../../utils/constants';
 
 export const RegisterPage = () => {
   const name = useForm();
@@ -14,6 +15,9 @@ export const RegisterPage = () => {
   const localization = useForm();
   const descpription = useForm('description');
 
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleSubmit = async event => {
     event.preventDefault()
 
@@ -21,18 +25,33 @@ export const RegisterPage = () => {
 
     if (allValuesIsValid) {
       const requestBody = {
-          name: name.value,
-          description: descpription.value,
-          localization: localization.value,
-          city: city.value,
-          state: state.value
+        name: name.value,
+        description: descpription.value,
+        localization: localization.value,
+        city: city.value,
+        state: state.value
       }
 
-      const reponse = await api.post("/TouristSpot", requestBody)
-      console.log(reponse)
+      try {
+        setIsLoading(true)
+        const reponse = await api.post("/TouristSpot", requestBody)
+        clearInputs()
+        setError(null)
+      } catch (e) {
+        setError("Ocorreu um erro inesperado, tente novamento mais tarde!")
+      }finally{
+        setIsLoading(false)
+      }
     }
   }
 
+  function clearInputs() {
+    name.setValue('')
+    city.setValue('')
+    state.setValue('')
+    localization.setValue('')
+    descpription.setValue('')
+  }
 
   return (
     <section className={styles.wrapper}>
@@ -41,11 +60,12 @@ export const RegisterPage = () => {
         <Input label="Nome:" name="name" {...name} />
         <section className={styles.containerAdress}>
           <Input label="Cidade:" name="city" {...city} />
-          <Select label="UF:" name="state" {...state} />
+          <Select label="UF:" name="state" valuesList={statesBrazil} {...state} />
         </section>
         <Input label="Referência/Endereço:" name="localization" {...localization} />
         <Textarea label="Descrição:" name="description" {...descpription} />
-        <ButtonForm onClick={handleSubmit}>Cadastre</ButtonForm>
+        <ButtonForm disabled={isLoading} onClick={handleSubmit}>Cadastre</ButtonForm>
+        {error && <p className={styles.error}>{error}</p>}
       </form>
     </section>
   )

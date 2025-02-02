@@ -29,3 +29,12 @@
     font-weight: 700;
     padding-block-end: .325rem;
 }
+
+.error{
+    background-color: rgba(255, 1, 1, 0.5);
+}
+
+.input:disabled{
+    pointer-events: none;
+    background-color: rgba(153, 153, 153, 0.3);
+}

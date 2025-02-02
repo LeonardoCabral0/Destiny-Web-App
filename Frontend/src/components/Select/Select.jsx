@@ -1,14 +1,13 @@
 import React from 'react'
-import { statesBrazil } from '../../utils/constants';
 import styles from './styles.module.css'
 
-export const Select = ({ name, label, value, onChange }) => {
+export const Select = ({ valuesList, name, label, value, error, onChange, disabled }) => {
     return (
         <div className={styles.wrapper}>
             <label className={styles.label} htmlFor={name}>{label}</label>
-            <select id={name} name={name} value={value} onChange={onChange} className={styles.input}>
+            <select disabled={disabled} id={name} name={name} value={value} onChange={onChange} className={`${styles.input} ${error ? styles.error : undefined}`}>
                 <option value=""></option>
-                {statesBrazil.map((state) => (
+                {valuesList.map((state) => (
                     <option key={state.sigla} value={state.sigla} >
                         {state.nome}
                     </option>
