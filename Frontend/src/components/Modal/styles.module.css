@@ -1,0 +1,41 @@
+.wrapper{
+    pointer-events: all;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.35);
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+}
+
+.modal{
+    background-color: white;
+    padding: 2rem;
+    border-radius: .325rem;
+    position: relative;
+    min-height: 4rem;
+    max-width: 860px;
+    width: 100%;
+}
+
+.iconClose{
+    position: absolute;
+    right: .2rem;
+    top: .2rem;
+    padding: .5rem;
+    font-weight: 600;
+    font-size: 1.325rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.iconClose:hover{
+    background-color: black;
+    color: white;
+}

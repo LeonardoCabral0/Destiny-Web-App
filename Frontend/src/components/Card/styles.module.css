@@ -1,12 +1,27 @@
-.cardContainer{
-    height: 100px;
+.wrapper{
     border: 1px solid black;
     margin-block: 1rem;
     transition: all .2s ease-in-out;
     border-radius: .325rem;
     cursor: pointer;
+    padding: .5rem 1rem;
 }
 
-.cardContainer:hover{
+.wrapper:hover{
     box-shadow: rgb(0, 0, 0) 5px 5px 0px 0px;
+    transform: scale(1.01);
+}
+
+.title{
+    font-size: 1.25rem;
+    font-weight: 600;  
+}
+
+.subTitle{
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.modalContent{
+    font-size: 1.25rem;
 }

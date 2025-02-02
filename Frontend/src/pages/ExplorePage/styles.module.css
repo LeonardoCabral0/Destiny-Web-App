@@ -1,23 +1,27 @@
 .wrapper{
     min-height: 100vh;
-    display: grid;
-    place-items: center;
-    padding: 4rem 1rem 1rem;
+    padding: 6rem 1rem 1rem;
+    margin: auto;
 }
 
 .container{
     max-width: 1280px;
     width: 100%;
+    margin: auto;
 }
 
 .containerSearch{
     width: 100%;
     padding: 1rem;
     border-radius: .325rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
 }
 
 .containerMenuSearch{
-    max-width: 800px;
+    flex: 3;
     margin:auto;
     display: flex;
     gap: .4rem;
@@ -33,6 +37,8 @@
     display: grid;
     place-items: center;
     transition: all .2s ease-in-out;
+    width: 3rem;
+    height: 3rem;
 }
 
 .searchButton:hover{
@@ -50,6 +56,57 @@
     border: 1px solid black;
 }
 
+.containerOptions{
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    gap: .5rem
+}
+
+.orderOptions{
+    border: 1px solid black;
+    border-radius: 2rem;
+    padding: .5rem;
+    cursor: pointer;
+}
+
+.paginationContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+}
+
+.paginationButton{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 1px solid black;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    background-color: black;
+    transition: all .2s ease-in-out;
+}
+
+.iconPaginationButton{
+    color: white;
+    pointer-events: auto;
+}
+
+.paginationDisplay{
+    border: 1px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+}
+
 .containerContent{
     max-width: 1280px;
     border: 1px solid black;
@@ -58,3 +115,4 @@
     box-shadow: rgb(0, 0, 0) 5px 5px 0px 0px;
     padding: 1rem;
 }
+

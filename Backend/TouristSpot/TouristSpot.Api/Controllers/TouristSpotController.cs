@@ -19,14 +19,16 @@ namespace WebAPI.Controllers
             return Created(string.Empty, response);
         }
 
-        [HttpGet("{orderBy?}")]
+        [HttpGet]
         [ProducesResponseType(typeof(OutputRegisterTouristSpot), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetAll(
         [FromServices] IGetTouristSpots useCase,
-        string orderBy = "ASC")
+        string orderBy = "ASC",
+        int page = 1,
+        string searchWord = "")
         {
-            var input = new InputGetTouristSpot(string.Empty, orderBy);
+            var input = new InputGetTouristSpot(searchWord, orderBy, page);
             var response = await useCase.Execute(input);
             if (response.TouristsSpots.Any())
                 return Ok(response);
