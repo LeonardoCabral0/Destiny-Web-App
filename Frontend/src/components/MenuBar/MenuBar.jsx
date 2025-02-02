@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const menuLinks = [
   { path: "/", label: "Home" },
   { path: "/cadastro", label: "Cadastrar" },
-  { path: "/", label: "Explorar" },
+  { path: "/explorar", label: "Explorar" },
 ];
 
 export const MenuBar = () => {
@@ -21,8 +21,6 @@ export const MenuBar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(prev => !prev)
   }
-
-  console.log(links)
 
   useGSAP(() => {
     gsap.set(links.current, { y: 75 });
@@ -38,9 +36,6 @@ export const MenuBar = () => {
       ease: "power4.out",
       delay: -0.75,
     });
-
-
-
   }, { scope: container })
 
   useEffect(() => {
