@@ -17,10 +17,14 @@ export const ExplorerPage = () => {
 
   const getAllTouristsSpots = async () => {
     setIsLoading(true)
-    const response = await api.get(`TouristSpot/?searchWord=${currentSearchWord}&orderBy=${currentOrderby}&page=${currentPage}&pageSize=${MAX_PAGE_SIZE}`)
-    if (response?.data) setTouristsSpots(response.data.touristsSpots)
-    else setTouristsSpots([])
-    setIsLoading(false)
+    try{
+      const response = await api.get(`TouristSpot/?searchWord=${currentSearchWord}&orderBy=${currentOrderby}&page=${currentPage}&pageSize=${MAX_PAGE_SIZE}`)
+      if (response.data) setTouristsSpots(response.data.touristsSpots)
+    } catch(e){
+      setTouristsSpots([])
+    }finally{
+      setIsLoading(false)
+    }
   }
 
   useEffect(() => {
