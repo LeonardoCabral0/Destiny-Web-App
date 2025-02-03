@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TouristSpot.Contracts", "To
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{879452A8-C84C-460C-89BA-A94B00C2DA0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristSpot.Application.Test", "TouristSpot.Application.Test\TouristSpot.Application.Test.csproj", "{405E019B-905F-4720-B996-B0077446DBA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TouristSpot.Application.Test", "TouristSpot.Application.Test\TouristSpot.Application.Test.csproj", "{405E019B-905F-4720-B996-B0077446DBA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{DD04425E-9936-4341-9189-42C8ABACC2BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,12 +49,17 @@ Global
 		{405E019B-905F-4720-B996-B0077446DBA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{405E019B-905F-4720-B996-B0077446DBA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{405E019B-905F-4720-B996-B0077446DBA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD04425E-9936-4341-9189-42C8ABACC2BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD04425E-9936-4341-9189-42C8ABACC2BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD04425E-9936-4341-9189-42C8ABACC2BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD04425E-9936-4341-9189-42C8ABACC2BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{405E019B-905F-4720-B996-B0077446DBA0} = {879452A8-C84C-460C-89BA-A94B00C2DA0F}
+		{DD04425E-9936-4341-9189-42C8ABACC2BB} = {879452A8-C84C-460C-89BA-A94B00C2DA0F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3C485A8E-8EC9-42D9-BC16-9789479203B5}

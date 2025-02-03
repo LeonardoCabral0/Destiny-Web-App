@@ -5,7 +5,7 @@ using TouristSpot.Domain.Exception.ExceptionMessages;
 
 namespace TouristSpot.Application.Test
 {
-    public class RegisterTouristSpotTest
+    public class RegisterValidatorTouristSpotTest
     {
         [Fact]
         public void Sucess_Valid_Input()

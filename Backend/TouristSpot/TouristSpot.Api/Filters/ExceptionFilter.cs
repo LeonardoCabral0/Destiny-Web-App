@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
 using TouristSpot.Contracts;
 using TouristSpot.Domain.Exception;
+using TouristSpot.Domain.Exception.ExceptionMessages;
 
 namespace TouristSpot.Api.Filters
 {
