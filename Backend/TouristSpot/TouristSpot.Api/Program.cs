@@ -1,3 +1,4 @@
+using TouristSpot.Api.Filters;
 using TouristSpot.Application;
 using TouristSpot.Infrastructure;
 
@@ -9,6 +10,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
 
 builder.Services.AddCors(options =>
 {
