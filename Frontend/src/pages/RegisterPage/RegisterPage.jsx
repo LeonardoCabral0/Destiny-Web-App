@@ -78,7 +78,7 @@ export const RegisterPage = () => {
       {modalIsOnpen && (
         <Modal close={closeModal}>
           <div className={styles.containerSucessModal}>
-            <FaCheckCircle size={60} className={styles.iconCheck} />
+            <FaCheckCircle size={68} className={styles.iconCheck} />
             <p className={styles.textSucessModal}>Cadastrado com sucesso!</p>
           </div>
         </Modal>)}

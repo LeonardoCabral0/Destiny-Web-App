@@ -20,6 +20,7 @@ export const ExplorerPage = () => {
     try{
       const response = await api.get(`TouristSpot/?searchWord=${currentSearchWord}&orderBy=${currentOrderby}&page=${currentPage}&pageSize=${MAX_PAGE_SIZE}`)
       if (response.data) setTouristsSpots(response.data.touristsSpots)
+      else setTouristsSpots([])
     } catch(e){
       setTouristsSpots([])
     }finally{
