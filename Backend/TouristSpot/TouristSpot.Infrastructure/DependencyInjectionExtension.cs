@@ -11,6 +11,10 @@ namespace TouristSpot.Infrastructure
         public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddRepositories();
+
+            if (configuration.IsUnitTestEnviroment())
+                return;
+
             services.AddDbContext(configuration);
         }
 
@@ -28,6 +32,11 @@ namespace TouristSpot.Infrastructure
         {
             services.AddScoped<ITouristSpotRepository, TouristSpotRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+        }
+
+        public static bool IsUnitTestEnviroment(this IConfiguration configuration)
+        {
+            return configuration.GetValue<bool>("InMemoryTest");
         }
     }
 }
