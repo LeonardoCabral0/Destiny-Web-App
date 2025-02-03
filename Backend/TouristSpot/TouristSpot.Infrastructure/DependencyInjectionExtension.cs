@@ -20,8 +20,7 @@ namespace TouristSpot.Infrastructure
 
         private static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
         {
-            //var connectionString = configuration.GetConnectionString("Connection");
-            var connectionString = "Data Source=DESKTOP-VTOFJ87;Initial Catalog=touristspot;User ID=sa;Password=root;Trusted_Connection=True; Encrypt=True; TrustServerCertificate=True;";
+            var connectionString = configuration.GetConnectionString("Connection");
             services.AddDbContext<APIDbContext>(options =>
             {
                 options.UseSqlServer(connectionString);
