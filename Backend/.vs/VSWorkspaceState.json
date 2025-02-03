@@ -1,0 +1,9 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\TouristSpot",
+    "\\TouristSpot\\TouristSpot.Infrastructure"
+  ],
+  "SelectedNode": "\\TouristSpot\\TouristSpot.Infrastructure\\APIDbContext.cs",
+  "PreviewInSolutionExplorer": false
+}
