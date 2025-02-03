@@ -1,22 +1,26 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './styles.module.css'
 import { FaAngleLeft, FaAngleRight, FaSearch } from "react-icons/fa";
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
 import { Card } from '../../components/Card/Card';
 import api from '../../utils/api';
-import { Modal } from '../../components/Modal/Modal';
+import { Loading } from './Loading/Loading';
+import { CardContainer } from './CardContainer/CardContainer';
+
+const MAX_PAGE_SIZE = 10
 
 export const ExplorerPage = () => {
   const [touristsSpots, setTouristsSpots] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
   const [currentOrderby, setCurrentOrderby] = useState("ASC")
   const [currentSearchWord, setCurrentSearchWord] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
 
   const getAllTouristsSpots = async () => {
-    const response = await api.get(`TouristSpot/?searchWord=${currentSearchWord}&orderBy=${currentOrderby}&page=${currentPage}`)
-    if (response.data) setTouristsSpots(response.data.touristsSpots)
+    setIsLoading(true)
+    const response = await api.get(`TouristSpot/?searchWord=${currentSearchWord}&orderBy=${currentOrderby}&page=${currentPage}&pageSize=${MAX_PAGE_SIZE}`)
+    if (response?.data) setTouristsSpots(response.data.touristsSpots)
     else setTouristsSpots([])
+    setIsLoading(false)
   }
 
   useEffect(() => {
@@ -68,7 +72,7 @@ export const ExplorerPage = () => {
           </div>
         </div>
         <div className={styles.containerContent}>
-          {touristsSpots.map(touristSpot => <Card touristSpot={touristSpot} />)}
+          {isLoading ? <Loading /> : <CardContainer touristsSpots={touristsSpots} />}
         </div>
       </div>
     </section>

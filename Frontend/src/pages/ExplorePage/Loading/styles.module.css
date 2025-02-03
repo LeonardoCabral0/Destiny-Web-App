@@ -1,0 +1,17 @@
+.wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.containerBalls{
+    display: flex;
+    gap: .5rem;
+}
+
+.ball{
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+    background-color: black;
+}

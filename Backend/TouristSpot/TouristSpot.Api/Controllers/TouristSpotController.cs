@@ -26,9 +26,10 @@ namespace WebAPI.Controllers
         [FromServices] IGetTouristSpots useCase,
         string orderBy = "ASC",
         int page = 1,
+        int pageSize = 10,
         string searchWord = "")
         {
-            var input = new InputGetTouristSpot(searchWord, orderBy, page);
+            var input = new InputGetTouristSpot(searchWord, orderBy, page, pageSize);
             var response = await useCase.Execute(input);
             if (response.TouristsSpots.Any())
                 return Ok(response);
