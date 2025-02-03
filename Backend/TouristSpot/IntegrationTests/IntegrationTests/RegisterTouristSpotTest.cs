@@ -19,7 +19,7 @@ namespace IntegrationTests
         public async Task Sucess()
         {
             var request = InputRegisterTouristSpotBuilder.Build();
-            var response = await _httpClient.PostAsJsonAsync("TouristSpot", request);
+            var response = await _httpClient.PostAsJsonAsync("touristSpot", request);
 
             response.StatusCode.Should().Be(HttpStatusCode.Created);
 
@@ -37,7 +37,7 @@ namespace IntegrationTests
         public async Task Error_Name_Empty()
         {
             var request = InputRegisterTouristSpotBuilder.BuildWithNameEmpty();
-            var response = await _httpClient.PostAsJsonAsync("TouristSpot", request);
+            var response = await _httpClient.PostAsJsonAsync("touristSpot", request);
 
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
 
@@ -55,7 +55,7 @@ namespace IntegrationTests
         public async Task Error_Description_Greater_Than_Max_Size()
         {
             var request = InputRegisterTouristSpotBuilder.BuildDescriptionGreaterThanMaxSize();
-            var response = await _httpClient.PostAsJsonAsync("TouristSpot", request);
+            var response = await _httpClient.PostAsJsonAsync("touristSpot", request);
 
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
 
@@ -73,7 +73,7 @@ namespace IntegrationTests
         public async Task Error_All_Propertys_Empty()
         {
             var request = InputRegisterTouristSpotBuilder.BuildWithAllPropertysEmpty();
-            var response = await _httpClient.PostAsJsonAsync("TouristSpot", request);
+            var response = await _httpClient.PostAsJsonAsync("touristSpot", request);
 
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
 

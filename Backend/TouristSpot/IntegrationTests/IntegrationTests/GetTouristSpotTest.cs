@@ -19,7 +19,7 @@ namespace IntegrationTests
         [Fact]
         public async Task Sucess()
         {
-            var response = await _httpClient.GetAsync("TouristSpot");
+            var response = await _httpClient.GetAsync("touristSpot");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
@@ -34,7 +34,7 @@ namespace IntegrationTests
         [Fact]
         public async Task Pagination_With_5_TouristsSpots()
         {
-            var response = await _httpClient.GetAsync("TouristSpot?pageSize=5");
+            var response = await _httpClient.GetAsync("touristSpot?pageSize=5");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
@@ -49,7 +49,7 @@ namespace IntegrationTests
         [Fact]
         public async Task Pagination_Page_2_TouristsSpots()
         {
-            var response = await _httpClient.GetAsync("TouristSpot?page=2");
+            var response = await _httpClient.GetAsync("touristSpot?page=2");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
@@ -64,7 +64,7 @@ namespace IntegrationTests
         [Fact]
         public async Task Filter_TouristsSpots_By_Name_Returns_Single_Result()
         {
-            var response = await _httpClient.GetAsync("TouristSpot?searchWord=Parque das Ave");
+            var response = await _httpClient.GetAsync("touristSpot?searchWord=Parque das Ave");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
@@ -79,7 +79,7 @@ namespace IntegrationTests
         [Fact]
         public async Task Filter_TouristsSpots_By_Name_Returns_Multiple_Results()
         {
-            var response = await _httpClient.GetAsync("TouristSpot?searchWord=Parque");
+            var response = await _httpClient.GetAsync("touristSpot?searchWord=Parque");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
@@ -97,7 +97,7 @@ namespace IntegrationTests
         [Fact]
         public async Task Filter_TouristsSpots_By_Description_Returns_Single_Result()
         {
-            var response = await _httpClient.GetAsync("TouristSpot?searchWord=Praia com águas cristalinas.");
+            var response = await _httpClient.GetAsync("touristSpot?searchWord=Praia com águas cristalinas.");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
@@ -112,7 +112,7 @@ namespace IntegrationTests
         [Fact]
         public async Task Filter_TouristsSpots_By_Description_Returns_Multiple_Results()
         {
-            var response = await _httpClient.GetAsync("TouristSpot?searchWord=histórica");
+            var response = await _httpClient.GetAsync("touristSpot?searchWord=histórica");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
@@ -130,7 +130,7 @@ namespace IntegrationTests
         [Fact]
         public async Task Filter_TouristsSpots_By_Description_And_Name_And_Localiaztion_Returns_Multiple_Results()
         {
-            var response = await _httpClient.GetAsync("TouristSpot?searchWord=Praia");
+            var response = await _httpClient.GetAsync("touristSpot?searchWord=Praia");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
@@ -149,7 +149,7 @@ namespace IntegrationTests
         [Fact]
         public async Task Order_Date_Ascending()
         {
-            var response = await _httpClient.GetAsync("TouristSpot");
+            var response = await _httpClient.GetAsync("touristSpot");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
@@ -168,7 +168,7 @@ namespace IntegrationTests
         [Fact]
         public async Task Order_Date_Descending()
         {
-            var response = await _httpClient.GetAsync("TouristSpot?orderBy=DESC");
+            var response = await _httpClient.GetAsync("touristSpot?orderBy=DESC");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
