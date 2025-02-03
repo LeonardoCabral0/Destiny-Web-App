@@ -7,6 +7,8 @@ import { ButtonForm } from '../../components/ButtonForm/ButtonForm';
 import { useForm } from '../../hooks/UseForm';
 import api from '../../utils/api';
 import { statesBrazil } from '../../utils/constants';
+import { Modal } from "../../components/Modal/Modal"
+import { FaCheckCircle } from 'react-icons/fa';
 
 export const RegisterPage = () => {
   const name = useForm();
@@ -14,6 +16,8 @@ export const RegisterPage = () => {
   const state = useForm();
   const localization = useForm();
   const descpription = useForm('description');
+
+  const [modalIsOnpen, setModalIsOpen] = useState(false)
 
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -34,9 +38,10 @@ export const RegisterPage = () => {
         const reponse = await api.post("/TouristSpot", requestBody)
         clearInputs()
         setError(null)
+        setModalIsOpen(true)
       } catch (e) {
         setError("Ocorreu um erro inesperado, tente novamento mais tarde!")
-      }finally{
+      } finally {
         setIsLoading(false)
       }
     }
@@ -50,20 +55,34 @@ export const RegisterPage = () => {
     descpription.setValue('')
   }
 
+  function closeModal() {
+    setModalIsOpen(false)
+  }
+
   return (
-    <section className={styles.wrapper}>
-      <form className={styles.form}>
-        <h2>Cadastre um novo ponto turístico!</h2>
-        <Input label="Nome:" name="name" {...name} />
-        <section className={styles.containerAdress}>
-          <Input label="Cidade:" name="city" {...city} />
-          <Select label="UF:" name="state" valuesList={statesBrazil} {...state} />
-        </section>
-        <Input label="Referência/Endereço:" name="localization" {...localization} />
-        <Textarea label="Descrição:" name="description" {...descpription} />
-        <ButtonForm disabled={isLoading} onClick={handleSubmit}>Cadastre</ButtonForm>
-        {error && <p className={styles.error}>{error}</p>}
-      </form>
-    </section>
+    <>
+      <section className={styles.wrapper}>
+        <form className={styles.form}>
+          <h2>Cadastre um novo ponto turístico!</h2>
+          <Input label="Nome:" name="name" {...name} />
+          <section className={styles.containerAdress}>
+            <Input label="Cidade:" name="city" {...city} />
+            <Select label="UF:" name="state" valuesList={statesBrazil} {...state} />
+          </section>
+          <Input label="Referência/Endereço:" name="localization" {...localization} />
+          <Textarea label="Descrição:" name="description" {...descpription} />
+          <ButtonForm disabled={isLoading} onClick={handleSubmit}>Cadastre</ButtonForm>
+          {error && <p className={styles.error}>{error}</p>}
+        </form>
+      </section>
+      {modalIsOnpen && (
+        <Modal close={closeModal}>
+          <div className={styles.containerSucessModal}>
+            <FaCheckCircle size={60} className={styles.iconCheck} />
+            <p className={styles.textSucessModal}>Cadastrado com sucesso!</p>
+          </div>
+        </Modal>)}
+    </>
+
   )
 }
