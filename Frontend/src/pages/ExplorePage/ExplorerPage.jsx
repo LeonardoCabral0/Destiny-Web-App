@@ -19,7 +19,6 @@ export const ExplorerPage = () => {
     setIsLoading(true)
     try {
       const response = await api.get(`touristspot?searchWord=${currentSearchWord}&orderBy=${currentOrderby}&page=${currentPage}&pageSize=${MAX_PAGE_SIZE}`)
-      console.log(response.data)
       if (response.data) setTouristsSpots(response.data.touristsSpots)
       else setTouristsSpots([])
     } catch (e) {
@@ -47,6 +46,7 @@ export const ExplorerPage = () => {
 
   const handleSearchClick = async () => {
     await getAllTouristsSpots()
+    setCurrentPage(1)
   }
 
   return (
