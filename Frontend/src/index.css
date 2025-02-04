@@ -12,6 +12,21 @@
   --color-neutral-300: #f2f2f2;
 }
 
+html::-webkit-scrollbar {
+  width: 10px;
+  background: transparent;
+}
+
+html::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
 *,
 *::before,
 *::after {
