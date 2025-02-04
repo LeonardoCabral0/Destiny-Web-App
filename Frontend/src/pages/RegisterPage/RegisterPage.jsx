@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './styles.module.css'
 import { Input } from '../../components/Input/Input';
 import { Select } from '../../components/Select/Select';
@@ -9,6 +9,7 @@ import api from '../../utils/api';
 import { statesBrazil } from '../../utils/constants';
 import { Modal } from "../../components/Modal/Modal"
 import { FaCheckCircle } from 'react-icons/fa';
+import axios from 'axios';
 
 export const RegisterPage = () => {
   const name = useForm();
@@ -22,9 +23,25 @@ export const RegisterPage = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  const [currentCitys, setCurrentCitys] = useState([])
+
+  useEffect(() => {
+    const fetchCitys = async () => {
+      if (state.value) {
+        const response = await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${state.value}/municipios`)
+        setCurrentCitys(response.data)
+        return
+      }
+      setCurrentCitys([])
+      city.setValue('')
+    }
+
+    fetchCitys()
+  }, [state.value])
+
   const handleSubmit = async event => {
     event.preventDefault()
-    const allValuesIsValid = name.validate() && city.validate() && state.validate() && localization.validate() && descpription.validate()
+    const allValuesIsValid = name.validate() && state.validate() && city.validate() && localization.validate() && descpription.validate() 
     if (allValuesIsValid) {
       const requestBody = {
         name: name.value,
@@ -66,8 +83,20 @@ export const RegisterPage = () => {
           <h2>Cadastre um novo ponto turístico!</h2>
           <Input label="Nome:" name="name" {...name} />
           <section className={styles.containerAdress}>
-            <Input label="Cidade:" name="city" {...city} />
-            <Select label="UF:" name="state" valuesList={statesBrazil} {...state} />
+            <Select disabled={state.value === ""} label="Cidade:" name="city" valuesList={currentCitys} {...city}>
+              {currentCitys.map((city) => (
+                <option key={city.id} value={city.nome} >
+                  {city.nome}
+                </option>
+              ))}
+            </Select>
+            <Select label="UF:" name="state" valuesList={statesBrazil} {...state}>
+              {statesBrazil.map((state) => (
+                <option key={state.sigla} value={state.sigla} >
+                  {state.nome}
+                </option>
+              ))}
+            </Select>
           </section>
           <Input label="Referência/Endereço:" name="localization" {...localization} />
           <Textarea label="Descrição:" name="description" {...descpription} />

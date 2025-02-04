@@ -56,3 +56,11 @@
 .ligth:hover {
     box-shadow: rgb(0, 0, 0) 5px 5px 0px 0px;
 }
+
+.mask{
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    margin-right: 3px;
+    line-height: 1.3;
+}
