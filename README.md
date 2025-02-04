@@ -73,7 +73,7 @@ const apiUrl = "http://localhost:YOUR_NEW_PORT";
 
 1. Navegue até o diretório do backend:
    ```bash
-   cd ./Backend/TouristSpot
+   cd ./Backend/TouristSpot/TouristSpot.Api
    ```
 
 2. Configure a string de conexão no arquivo `appsettings.json`. Substitua `YOUR_CONNECTION_STRING` com a string de conexão adequada ao seu ambiente:
