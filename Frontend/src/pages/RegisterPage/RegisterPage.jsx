@@ -28,10 +28,17 @@ export const RegisterPage = () => {
   useEffect(() => {
     const fetchCitys = async () => {
       if (state.value) {
-        const response = await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${state.value}/municipios`)
-        setCurrentCitys(response.data)
+        try{
+          const response = await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${state.value}/municipios`)
+          setCurrentCitys(response.data)
+          setError(null)
+        } catch {
+          setCurrentCitys([])
+          setError("Não foi possível buscar os dados das cidades, tente novamente mais tarde!")
+        }
         return
       }
+
       setCurrentCitys([])
       city.setValue('')
     }
