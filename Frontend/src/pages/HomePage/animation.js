@@ -1,3 +1,5 @@
+import { delay } from "framer-motion"
+
 export const slideUp = {
     initial: {
         y: "100%",
@@ -18,7 +20,7 @@ export const opacity = {
     },
     open: {
         opacity: 1,
-        transition: {duration: 0.5}
+        transition: {duration: 1, delay: 0.65}
     },
     closed: {
         opacity: 0,

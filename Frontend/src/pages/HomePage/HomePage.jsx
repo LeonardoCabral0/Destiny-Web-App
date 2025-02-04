@@ -9,7 +9,7 @@ export const HomePage = () => {
   return (
     <div className={styles.wrapper}>
       <div>
-        <h2 className={styles.title}>Explore os Melhores Pontos Turísticos</h2>
+        <motion.h2 variants={opacity} initial="initial" animate="open" className={styles.title}>Explore os Melhores Pontos Turísticos</motion.h2>
         <p className={styles.subTitle}>
           {
             phrase.split(" ").map((word, index) => {
