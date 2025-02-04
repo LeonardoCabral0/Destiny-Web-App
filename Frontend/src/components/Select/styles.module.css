@@ -38,3 +38,7 @@
 .error{
     background-color: rgba(255, 1, 1, 0.5);
 }
+
+.error option{
+    background-color: white;
+}
