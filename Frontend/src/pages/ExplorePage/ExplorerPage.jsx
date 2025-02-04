@@ -11,20 +11,20 @@ const MAX_PAGE_SIZE = 10
 export const ExplorerPage = () => {
   const [touristsSpots, setTouristsSpots] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
-  const [currentOrderby, setCurrentOrderby] = useState("ASC")
+  const [currentOrderby, setCurrentOrderby] = useState("DESC")
   const [currentSearchWord, setCurrentSearchWord] = useState("")
   const [isLoading, setIsLoading] = useState(false)
 
   const getAllTouristsSpots = async () => {
     setIsLoading(true)
-    try{
+    try {
       const response = await api.get(`touristspot?searchWord=${currentSearchWord}&orderBy=${currentOrderby}&page=${currentPage}&pageSize=${MAX_PAGE_SIZE}`)
       console.log(response.data)
       if (response.data) setTouristsSpots(response.data.touristsSpots)
       else setTouristsSpots([])
-    } catch(e){
+    } catch (e) {
       setTouristsSpots([])
-    }finally{
+    } finally {
       setIsLoading(false)
     }
   }
@@ -61,8 +61,8 @@ export const ExplorerPage = () => {
           </div>
           <div className={styles.containerOptions}>
             <select onChange={({ target }) => setCurrentOrderby(target.value)} className={styles.orderOptions}>
-              <option value="ASC">Crescente</option>
               <option value="DESC">Decrescente</option>
+              <option value="ASC">Crescente</option>
             </select>
             <div className={styles.paginationContainer}>
               <button className={styles.paginationButton} onClick={decrementPage}>
