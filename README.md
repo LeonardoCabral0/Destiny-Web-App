@@ -1,7 +1,7 @@
-# Projeto Destiny - Teste Técnico Sinqia
+# Projeto Destiny
 
 ## Introdução
-O projeto Destiny foi desenvolvido como parte de um teste técnico para o processo seletivo de uma vaga na Sinqia, uma empresa de tecnologia que oferece soluções para o setor financeiro. O objetivo principal do teste foi avaliar competências técnicas, organização de código, boas práticas de desenvolvimento e capacidade de resolução de problemas.
+O projeto Destiny foi desenvolvido como um site experimental com o objetivo de listar pontos turísticos. Além disso, busca demonstrar competências técnicas, organização de código, boas práticas de desenvolvimento e capacidade de resolução de problemas.
 
 ## Objetivo do Projeto
 O desafio do Destiny consistiu em criar uma aplicação para gerenciamento de destinos turísticos. A solução deveria permitir:
